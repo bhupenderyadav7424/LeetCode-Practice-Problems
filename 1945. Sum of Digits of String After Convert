@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int sum(vector <int> &v, int k)
+    {
+        int s=0;
+        --k;
+        for(int i=0; i<v.size(); i++)
+        {
+            while(v[i]>0)
+            {    
+                s+=(v[i]%10);
+                v[i]/=10;
+            }
+        }
+        int ans=s;
+        while(k!=0)
+        {
+            s=ans;
+            ans=0;
+            while(s>0)
+            {    
+                ans+=(s%10);
+                s/=10;
+            }
+            k--;
+        }
+        return ans;
+    }
+    
+    int getLucky(string s, int k) {
+        vector <int> v;
+        for(int i=0; i<s.length(); i++)
+            v.push_back(s[i]-96);
+        return sum(v,k);
+    }
+};
