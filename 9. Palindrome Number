@@ -1,0 +1,40 @@
+Solution 1 :-
+
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if(x<0)
+            return 0;
+        long long int num=x,sum=0,p=10;
+        while(num>0)
+        {
+            sum=(p*sum)+(num%10);
+            num/=p;
+        }
+        if(sum==x)
+            return 1;
+        else
+            return 0;
+    }
+};
+
+
+Solution 2 :-
+
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if(x<0)
+            return 0;
+        long long int num=x,sum=0;
+        while(num>0)
+        {
+            sum=(10*sum)+(num%10);
+            num/=10;
+        }
+        if(sum==x)
+            return 1;
+        else
+            return 0;
+    }
+};
