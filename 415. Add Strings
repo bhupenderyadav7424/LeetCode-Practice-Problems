@@ -1,0 +1,38 @@
+class Solution {
+public:
+    string addStrings(string num1, string num2) {
+        string str;
+        int c=0;
+        int l1=num1.length();
+        int l2=num2.length();
+        int l=max(l1,l2);
+        for(int i=l-1; i>=0; i--)
+        {
+            int sum=c;
+            if(l1!=0)
+            {
+                sum+=(num1[l1-1]-'0');
+                l1--;
+            }
+            if(l2!=0)
+            {
+                sum+=(num2[l2-1]-'0');
+                l2--;
+            }
+            if(sum>=10)
+            {
+                str.push_back(sum%10+'0');
+                c=1;
+            }
+            else
+            {
+                str.push_back(sum+'0');
+                c=0;
+            }
+        }
+        if(c==1)
+            str.push_back(c+'0');
+        reverse(str.begin(),str.end());
+        return str;
+    }
+};
