@@ -1,0 +1,16 @@
+class Solution {
+public:
+    long long waysToBuyPensPencils(int total, int cost1, int cost2) {
+        if(total<cost1 && total<cost2)
+            return 1;
+        long long ways=0;
+        long long pcost=0;
+        while(pcost<=total) {
+            long long diff=total-pcost;
+            long long pencils=diff/cost2+1;
+            ways+=pencils;
+            pcost+=cost1;
+        }
+        return ways;
+    }
+};
